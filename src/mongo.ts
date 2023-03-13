@@ -43,7 +43,7 @@ export async function insertError(json:MyError,collectionName:string='gpterrors'
     const stamp = Math.floor(Date.now()/1000);
   const result = await collections(collectionName).insertOne({stamp, ...json });
   // the following code examples can be pasted here...
-  console.info("insertMessage", result);
+  console.info("insertError", result);
   return result?.acknowledged;
 }
 
