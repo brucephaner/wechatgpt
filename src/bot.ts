@@ -140,6 +140,7 @@ export class ChatGPTBot {
     timestamp:number|unknown
   ) {
     insertMessage({talkerId:talker.id,talkerName:talker.name(),text,roomId:room.id,roomName:room.payload?.topic,timestamp},'groups')
+    
     const gptMessage = await this.getGPTMessage(text,talker.id + room.id);
     const hint = text.length>10?(text.substring(0,9)+'...'):text;
     const result = `@${talker.name()} ${hint}\n >> ${gptMessage}`;
@@ -149,9 +150,9 @@ export class ChatGPTBot {
     // console.log(`🎯 ${message.date()} Message: ${message}`);
     console.log(`🎯 ${message.date().toLocaleDateString()} Message: ${message}`);
     // console.log(`🎯 ${message.date().toLocaleDateString()} Message: `,message);
-    console.log(`🎯 talker: `, message.talker());// id name
+    // console.log(`🎯 talker: `, message.talker());// id name
     console.log(`🎯 talker: `, message.talker()?.id);
-    console.log(`🎯 talker name: `, message.talker().name(), message.text());
+    console.log(`🎯 talker name: `, message.talker().name());
     // console.log(`🎯 room: `, message.room());//  
     console.log(`🎯 room: `, message.room()?.id);//  
     console.log(`🎯 room topic: `, message.room()?.payload?.topic);//  
