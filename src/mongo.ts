@@ -31,7 +31,7 @@ export async function insertMessage(json:{},collectionName:string='others') {
   //  const stamp = Math.floor(Date.now()/1000);
   const result = await collections(collectionName).insertOne({...json });
   // the following code examples can be pasted here...
-  console.info("insertMessage", result);
+  // console.info("insertMessage", result);
   return result?.acknowledged;
 }
 
